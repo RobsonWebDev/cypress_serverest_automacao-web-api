@@ -3,7 +3,6 @@ Cypress.Commands.add('postUser', (user) => {
         url: '/usuarios',
         method: 'POST',
         body: user,
-        failOnStatusCode: false
     });
 });
 
@@ -22,12 +21,18 @@ Cypress.Commands.add('login', (user) => {
 
 
 Cypress.Commands.add('getUser', (user) => {
+
     cy.request({
-        url: '/usuarios',
+        url: `/usuarios?email=${user.email}`,
         method: 'GET',
-        body: user,
         failOnStatusCode: false
     });
 });
 
-Cypress.Commands
+Cypress.Commands.add('deleteUser', (userID) => {
+    cy.request({
+    url: `/usuarios/${userID}`,
+        method: 'DELETE',
+        failOnStatusCode: false
+    })
+})

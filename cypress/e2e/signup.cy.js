@@ -6,9 +6,11 @@ describe('Criar Usuario', () => {
     })
   })
   
-  it('signup', function() {
+  it('Cadastro com Sucesso', function() {
 
     const user = this.signup.create
+
+
 
     cy.visit('https://front.serverest.dev/login')
 
@@ -35,5 +37,21 @@ describe('Criar Usuario', () => {
 
     cy.contains('.alert-link', 'Cadastro realizado com sucesso')
       .should('be.visible')
+
+    cy.getUser(user).then(
+      response => {
+
+        const userID = response.body.usuarios[0]._id
+
+        expect(userID).to.eq(response.body.usuarios[0]._id)
+
+        cy.deleteUser(userID).then(
+          respo => {
+            expect(respo.status).to.eq(200)
+          }
+        )
+      }
+      
+    )
   })
 })
