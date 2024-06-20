@@ -1,8 +1,8 @@
 {
   "create":{
-    "name": "Steve Rogers",
+    "nome": "Steve Rogers",
     "email": "capitao@avengers.usa.com",
     "password": "pwd123",
-    "administrador": true
+    "administrador": "true"
   }
 }

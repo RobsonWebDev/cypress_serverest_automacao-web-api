@@ -3,7 +3,11 @@ Cypress.Commands.add('postUser', (user) => {
         url: '/usuarios',
         method: 'POST',
         body: user,
-    });
+        failOnStatusCode: false
+    }).then(
+        response => {
+            return response
+        });
 });
 
 Cypress.Commands.add('login', (user) => {
