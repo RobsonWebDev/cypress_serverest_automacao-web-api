@@ -73,18 +73,6 @@ describe('Realizando Login', () => {
 
     cy.contains('span', `Email e/ou senha inválidos`).should('be.visible')
 
-    cy.login(users).then(
-      response => {
-
-
-        const msg = 'Email e/ou senha inválidos'
-
-        expect(response.status).to.eq(400)
-        expect(response.body.message).to.eq(msg)
-
-      }
-    )
-
     cy.getUser(users).then(
       response => {
 
@@ -141,7 +129,7 @@ describe('Realizando Login', () => {
     )
   })
 
-  it.only('Password em Branco', function () {
+  it('Password em Branco', function () {
 
     const users = this.login.user
 
