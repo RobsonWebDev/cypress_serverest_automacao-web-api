@@ -1,0 +1,8 @@
+{
+    "user": {
+        "nome": "Thor Odin-son",
+        "email": "thor@avengers.usa.com",
+        "password": "pwd123",
+        "administrador": "true"
+    }
+}

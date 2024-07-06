@@ -10,15 +10,15 @@ Cypress.Commands.add('postUser', (user) => {
         });
 });
 
-Cypress.Commands.add('login', (user) => {
+Cypress.Commands.add('login', (users) => {
 
-    delete user.name
-    delete user.administrador
+    delete users.nome
+    delete users.administrador
 
     cy.request({
         url: '/login',
         method: 'POST',
-        body: user,
+        body: users,
         failOnStatusCode: false
     });
 });
